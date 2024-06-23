@@ -204,26 +204,17 @@ console.log(res[0].body)
     {
       // جلب الكارت من اللوكال ستوريج في حال كان موجود وتخزينه في متغير عرفناه سابقا
       this.cartProducts = JSON.parse(localStorage.getItem('cart')!)
-      // السطر التالي للتأكد اذا كان المنتج الذي نضيفه حاليا موجود حاليا في السلة
-      // حيث لايتم اضافته مرة أخرى بل يتم زيادة كميته
       let exist = this.cartProducts.find(item => item.item.productId == event.item.productId)
       if(exist) { // هذا في حال كان المنتج موجود سابقا
         alert('المنتج موجود مسبقا في السلة');
       }
-      else { // هذا في حال لم يكن المنتج موجود سابقا فسيتم عمل الاجراءات العادية التي هي
-             // سيتم اضافة المنتح للمتغير الذي عرفناه سابقا وسيتم وضع هذا
-              // لمتغير الذي هو مصفوفة المنتجات في اللوكال ستوريح
+      else { 
         this.cartProducts.push(event) // الاضافة للسلة
         localStorage.setItem('cart', JSON.stringify(this.cartProducts)) // هنا طلبنا أن يتم تخزين الداتا في
       }                                                                 // اللوكال ستوريج على أنها جيسون
-    }else { // هنا في حال لم يكن العنصر كارت  موجود في اللوكال ستوريج
-              // حيث في هذه الحالة سيتم عمل الاجراءت العادية التي هي اضافة المنتح للمتغير
-              // الذي عرفناه سابقا وسيتم وضع هذا
-              // لمتغير الذي هو مصفوفة المنتجات في اللوكال ستوريح
+    }else { 
       this.cartProducts.push(event);
-      localStorage.setItem('cart', JSON.stringify(this.cartProducts)) // هنا طلبنا أن يتم تخزين الداتا في
-                                                                       // اللوكال ستوريج على أنها جيسون
+      localStorage.setItem('cart', JSON.stringify(this.cartProducts)) 
     }
-
   }
 }

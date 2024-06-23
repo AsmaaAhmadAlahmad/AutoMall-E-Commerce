@@ -32,12 +32,6 @@ export class NewCommercialStoreComponent implements OnInit
 
     public FloorNumberEnum=FloorNumber;
 
-    //  categoriesControl= new FormControl()
-    //  name= new FormControl('', Validators.required)
-      //  shop_rent= new FormControl('',  [Validators.required, Validators.pattern('^[0-9]*.?[0-9]+$')])
-      //  shop_owner_name= new FormControl('', Validators.required)
-      //  departmentId= new FormControl('', Validators.required)
-      //  file= new FormControl('', Validators.required)
 
   loading!:boolean;
   commercialStoreForm!: any;
@@ -69,21 +63,7 @@ export class NewCommercialStoreComponent implements OnInit
     }
 
 
-  // showPreview($event: any) { // رح علقها حاليا مشان حطها في سيرفيس مشتركة ثم اقوم باستدعائها من السيرفيس لانها موجودة في اكثر من كومبونينت
-  //   var reader = new FileReader();
-  //   reader.onload = (e) => (this.imgSrc = e.target?.result);
-  //   reader.readAsDataURL($event.target.files[0]);
-  //   this.selectedImage = $event.target.files[0]; // من هذا المتغير يمكنني ان أحصل على اسم الصورة ومسارها
-  //   console.log(this.selectedImage);
-  //   console.log($event);
-  // }
-
-
-
-
-  // onFileSelected(event: any): void {
-  //   this.imageService.showPreview(event, (src) => this.imgSrc = src);
-  // }
+ 
 
   onFileSelected(event: any): void {
     this.imageService.showPreview(event).subscribe({

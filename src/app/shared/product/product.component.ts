@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Product } from '../../products/models/product';
-import { convertToSpacesPipe } from '../convert-to-spaces.pipe';
+import { convertToSpacesPipe } from '../pipes/convert-to-spaces.pipe';
 import { HttpUrlEncodingCodec } from '@angular/common/http';
 @Component({
   selector: 'app-product',
@@ -39,16 +39,7 @@ jsDecode(param: string){
   console.log(this.jsEncode(param))
   return decodeURIComponent(this.jsEncode(param));
 }
-//  getUrlVars() {
-//   var url = window.location.href,
-//       vars = {};
-//   url.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value){
-//        key = decodeURIComponent(key);
-//        value = decodeURIComponent(value);
-//        vars[key] = value;
-//   });
-//   return vars;
-// }
+
 
 checkValue(): void { // هذه الدالة لإلغاء تفعيل زر اضافة المنتج للسلة في حال كانت الكمية اكبر
                       // من عشرة واصغر من واحد
@@ -59,9 +50,7 @@ checkValue(): void { // هذه الدالة لإلغاء تفعيل زر اضا�
   }
 }
 
-// encodeProductName(productName: string): string {
-//   return encodeURIComponent(productName.replace(/,/g, '/'));
-// }
+
 
 
  add()

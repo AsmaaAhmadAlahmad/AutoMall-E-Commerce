@@ -98,14 +98,6 @@ export class NewProductComponent implements OnInit {
   }
 
 
-  // showPreview($event: any) {
-  //   var reader = new FileReader();
-  //   reader.onload = (e) => (this.imgSrc = e.target?.result);
-  //   reader.readAsDataURL($event.target.files[0]);
-  //   this.selectedImage = $event.target.files[0]; // من هذا المتغير يمكنني ان أحصل على اسم الصورة ومسارها
-  //   console.log(this.selectedImage);
-  //   console.log($event);
-  // }
 
 
 
