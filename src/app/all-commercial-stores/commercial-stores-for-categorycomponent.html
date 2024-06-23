@@ -1,0 +1,36 @@
+<div class="container ">
+  <div class="text-center" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+  <div class="row">
+    @for (item of commercialStoresByCategory; track $index) {
+      <a
+        [routerLink]="['/products-for-cmmercial-store']"
+        [queryParams]="{ commercialStoreId: item.id }"
+        class="col-lg-4 col-12"
+      >
+        <div class="a mt-3">
+          <div class="card">
+            <img
+              class="card-img-top"
+              src="http://localhost:8081/CommercialStores/{{ item.fileName }}"
+              width="400px"
+              height="300px"
+              alt="{{ item.description }}"
+            />
+            <div class="card-body">
+              <h2 class="card-title text-center">{{ item.name }}</h2>
+            </div>
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+
+  <app-pagination
+  [TotalItemCount]="TotalItemCount"
+  [PageSize]="PageSize"
+  (pageChanged)="onPageNumberChanged($event)"
+
+></app-pagination>
+</div>

@@ -1,0 +1,14 @@
+footer{
+  margin-top: 100px;
+  background-color: #B2B2B2;
+  min-height: 200px;
+  padding-top: 20px;
+  color: black;
+}
+
+li,a
+{
+  /* color: #2196F3 ; */
+  margin-top: 5px;
+}
+

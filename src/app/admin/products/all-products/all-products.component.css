@@ -1,0 +1,17 @@
+
+.bg-theme{
+background-color: #016364;
+color: white;
+}
+
+.card
+{
+  border: none;
+}
+
+.hover:hover {
+  background-color: #2E2E2E;
+}
+.container {
+  margin-top: 100px;
+}

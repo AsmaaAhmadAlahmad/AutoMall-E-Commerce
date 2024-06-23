@@ -1,0 +1,56 @@
+.admin-header {
+  background-color: #f8f9fa; /* لون الخلفية الفاتح */
+  color: #016364;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* إضافة ظل خفيف */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo a {
+  color: #016364;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #016364;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.logout button {
+  background: none;
+  border: 1px solid #016364;
+  color: #016364;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.logout button:hover {
+  background-color: #016364;
+  color: white;
+}

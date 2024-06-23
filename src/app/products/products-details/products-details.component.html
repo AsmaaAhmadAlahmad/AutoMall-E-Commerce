@@ -1,0 +1,22 @@
+
+
+
+<div class="box">
+  <div class="row">
+    <div class="col-md-5 col-12">
+    <img src="http://localhost:8081/{{ data.fileName }}" alt="{{data.name}}">
+    </div>
+    <div class="col-md-7 col-12">
+      <div class="info">
+        <ul class="list-unstyled">
+          <li class="mt-2">Title: {{data.name}}</li>
+          <li class="mt-2">Price: {{data.price}}$</li>
+          <li class="mt-2">Description: {{data.description}}</li>
+          <!-- <li class="mt-2">rating.rate: {{data.rating.rate}}</li>
+          <li class="mt-2">rating.count: {{data.rating.count}}</li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <app-spinner *ngIf="loading"></app-spinner>
+</div>

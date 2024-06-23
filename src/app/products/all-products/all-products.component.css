@@ -1,0 +1,33 @@
+
+/* start box */
+.container{
+  margin-top: 100px;
+}
+.row .col-md-3 .a:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.container  a
+{
+text-decoration: none;
+color: white;
+}
+
+.discover  a
+{
+text-decoration: none;
+color: white;
+}
+.col-md-3 .a
+  {
+  transition: transform 1s ease;
+  }
+
+.card span
+{
+  height:44px;
+  background-color: #F8D7DA;
+}
+
+  /* end box */

@@ -1,0 +1,219 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-12 text-center">
+      <h3 class="text-theme-primary">Add New Commercial Store</h3>
+      <p>You can add product here</p>
+    </div>
+  </div>
+  <div class="text-center" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+  <form action="" [formGroup]="commercialStoreForm" (ngSubmit) ="addCommercialStore()" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card shadow-effect">
+          <div class="card-body">
+            <div class="form-group">
+              <label for=""> Name </label>
+              <input
+                type="text"
+                class="form-control"
+                (keyup)="onTitleChanged($event)"
+                [formControl]="commercialStoreForm.controls.name"
+                [ngClass]="{
+                  'is-invalid':
+                  commercialStoreForm.get('name')?.invalid &&
+                  commercialStoreForm.get('name')?.touched
+                }"
+              />
+              @if (commercialStoreForm.get('name')?.invalid &&
+              commercialStoreForm.get('name')?.touched) {
+              <div class="alert alert-danger">Name is required</div>
+              }
+            </div>
+            <div class="form-group">
+              <label for=""> PermaLink </label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="permaLink"
+                [ngModelOptions]="{ standalone: true }"
+                disabled
+              />
+            </div>
+            <div class="form-group">
+              <label for=""> Shop rent </label>
+              <input
+                type="text"
+                [formControl]="commercialStoreForm.controls.shop_rent"
+                class="form-control"
+                name="shop_rent"
+                [ngClass]="{
+                  'is-invalid':
+                  commercialStoreForm.get('shop_rent')?.invalid &&
+                  commercialStoreForm.get('shop_rent')?.touched
+                    || commercialStoreForm.get('shop_rent')?.errors?.['pattern']
+                }"
+              />
+              @if (commercialStoreForm.get('shop_rent')?.invalid &&
+              commercialStoreForm.get('shop_rent')?.touched) {
+              <div class="alert alert-danger" >shop_rent is required. </div>
+              }
+              @if (commercialStoreForm.get('shop_rent')?.errors?.['pattern']) {
+              <div class="alert alert-danger" >shop_rent must be a valid number.</div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="">Shop owner name </label>
+              <textarea
+                class="form-control"
+                cols="30"
+                rows="5"
+                [formControl]="commercialStoreForm.controls.shop_owner_name"
+                [ngClass]="{
+                  'is-invalid':
+                    commercialStoreForm.get('shop_owner_name')?.invalid &&
+                    commercialStoreForm.get('shop_owner_name')?.touched
+                }"
+              ></textarea>
+              @if (commercialStoreForm.get('shop_owner_name')?.invalid &&
+              commercialStoreForm.get('shop_owner_name')?.touched) {
+              <div class="alert alert-danger">shop owner name is required.</div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="form-group mb-3">
+          <label for="">         Please select a category/categories available in this store
+          </label>
+          <select
+            class="form-control "
+            [formControl]="commercialStoreForm.controls.categoriesControl"
+            [ngClass]="{
+              'is-invalid':
+                commercialStoreForm.get('categoriesControl')?.invalid &&
+                commercialStoreForm.get('categoriesControl')?.touched
+            }"
+             multiple>
+            <!-- <option value="">Please select a category</option>  --> <!-- هذا الخيار مافي داعي له  -->
+            <option *ngFor="let item of allCategories" [value]="item.id">
+              {{ item.name }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              commercialStoreForm.get('categoriesControl')?.invalid &&
+              commercialStoreForm.get('categoriesControl')?.touched
+            "
+            class="alert alert-danger"
+          >
+          Please select a category/categories available in this store
+          </div>
+          </div>
+
+          <!-- <div class="form-group">
+            <app-select
+              [data]="allCategories"
+              [showAllOption]="false"
+              [showDefaultOption]="true"
+              [messageForDefaultOption]="'Please select a category/categories available in this store'"
+              [title]="'Please select a category/categories available in this store'"
+              [formControlName]="'categoriesControl'"
+              (formCreated)="formInitialized('categoriesControl', $event)"
+              [isMultiple]="true"
+            >
+            </app-select>
+          </div> -->
+
+          <div class="form-group mb-3">
+            <label for=""> Please select department </label>
+            <select name="" id="" class="form-control " [formControl]="commercialStoreForm.controls.departmentId"  [ngClass]="{
+              'is-invalid':
+                commercialStoreForm.get('departmentId')?.invalid &&
+                commercialStoreForm.get('departmentId')?.touched
+            }">
+              <option value="{{FloorNumberEnum.Ground_floor}}">Ground_floor</option>
+              <option value="{{FloorNumberEnum.Floor1}}">Floor1</option>
+              <option value="{{FloorNumberEnum.Floor2}}">Floor2</option>
+              <option value="{{FloorNumberEnum.Floor3}}">Floor3</option>
+              <option value="{{FloorNumberEnum.Floor4}}">Floor4</option>
+              <option value="{{FloorNumberEnum.Floor5}}">Floor5</option>
+              <option value="{{FloorNumberEnum.Floor6}}">Floor6</option>
+            </select>
+          <div
+            *ngIf="
+              commercialStoreForm.get('departmentId')?.invalid &&
+              commercialStoreForm.get('departmentId')?.touched
+            "
+            class="alert alert-danger"
+          >
+          Please select department
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fileUpload"> Product image </label>
+          <img
+            [src]="imgSrc"
+            alt=""
+            class="img-fluid img-preview form-control"
+          />
+          <input
+          type="file"
+          id="fileUpload"
+          [formControl]="commercialStoreForm.controls.file"
+          class="form-control"
+
+            accept="image/*"
+            (change)="onFileSelected($event)"
+            [ngClass]="{
+              'is-invalid':
+                commercialStoreForm.get('file')?.invalid &&
+                commercialStoreForm.get('file')?.touched
+            }"
+          />
+          <div
+            *ngIf="
+              commercialStoreForm.get('file')?.invalid &&
+              commercialStoreForm.get('file')?.touched
+            "
+            class="alert alert-danger"
+          >
+            Please select a product image
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-3">
+      <div class="col-md-12 text-center">
+        <button
+          class="btn btn-info bg-theme hover"
+           [disabled]="commercialStoreForm.invalid"
+        >
+          Add
+        </button>
+        <button
+          class="btn btn-warning ml-2"
+          routerLink="/admin"
+        >
+          Go to the products
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+{{imgSrc | json}}
+{{selectedImage | json}}
+
+
+<!--
+{{commercialStoreForm.get('categoriesControl')?.invalid }}
+{{commercialStoreForm.get('categoriesControl')?.value | json}} -->

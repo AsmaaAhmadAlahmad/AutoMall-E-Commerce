@@ -1,0 +1,174 @@
+
+/* لا تحذفي اي شي موجود هون  */
+/* start feutures */
+.feutures
+{
+
+  width: 100%;
+}
+.feutures h2
+{
+  margin: 50px auto 30px auto;
+}
+/* end feutures */
+
+
+/* start discover */
+.discover h2
+{
+  margin: 50px auto 30px auto;
+}
+
+
+.discover .container .card {
+  background-color:#B2B2B2 ;
+  border-radius: 0px;
+  }
+
+  .col-lg-4 .a
+  {
+  transition: transform 1s ease;
+  }
+
+.discover .card-body
+{
+  height: 40px;
+  padding-top: 10px;
+}
+
+  .row .col-lg-4 .a:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+ .container .card
+ {
+  margin-bottom: 30px;
+ }
+ .container  a
+ {
+text-decoration: none;
+color: white;
+ }
+
+.discover  a
+{
+text-decoration: none;
+color: white;
+}
+
+
+
+.slide{
+  margin-top: 57px;
+}
+
+/* حالليا اللي بعد هالسسطر مو لازمين */
+/* .clearfix:hover
+{
+  background-color:#E1C699;
+
+
+} */
+
+
+.container-fluid .row figure:hover,
+.container-fluid .row div.clearfix:hover {
+  transform: scale(1.1); /* تكبير الصورة عند تحويل الماوس عليها */
+  transition: all 0.3s ease; /* تطبيق التحول بشكل سلس على جميع الخصائص */
+}
+
+
+div.clearfix
+{
+  width: 347.99px;
+  transition:0.2s transform 1s ease; /* تحديد سرعة التحول بشكل سلس */
+  background-color: #E1C699;
+  height: 40px;
+  padding-top: 8px;
+}
+.container-fluid .row
+
+ {
+  transition:0.2s transform 1s ease; /* تحديد سرعة التحول بشكل سلس */
+  margin-bottom: 30px;
+
+
+ }
+ .container-fluid .row  figure img
+
+ {
+  width: 360px;
+height: 300px;
+
+
+ }
+/* end discover the mall */
+
+
+/* <!-- start all catoeyreis --> */
+.allCategory{
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+.cute-box {
+  background-color:#f0f0f0 ;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.cute-box:hover {
+  transform: translateY(-5px); /* حركة بسيطة للأعلى عند التحويل */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* توهج أكبر */
+  background-color:  #f7eee6;
+
+}
+
+.name {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+/* <!-- end all catoeyreis --> */
+
+
+/* ************************************start statistic************************************************************ */
+.statistic
+{
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/images/secondImage.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+   background-color: rgba(0, 0, 0, 0.685);
+   margin-top: 100px;
+   background-size: cover;
+   background-attachment: fixed;
+
+
+}
+.statistic .overlay
+{
+    padding-top: 250px;
+    background-color: rgba(0, 0, 0, 0.541);
+    width: 100%;
+    height: 100%;
+position: absolute;
+
+}
+.statistic .overlay h3{
+
+    color: white;
+    background-attachment: fixed;
+}
+.statistic .overlay p
+{
+    color: white;
+    font-size: 50px;
+    background-attachment: fixed;
+}
+/* **************************************end statistic ******************************************/

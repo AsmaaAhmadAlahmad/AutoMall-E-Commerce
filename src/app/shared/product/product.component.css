@@ -1,0 +1,30 @@
+
+/* start box */
+ .card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* .container  a
+{
+text-decoration: none;
+color: white;
+}
+
+.discover  a
+{
+text-decoration: none;
+color: white;
+} */
+ .card
+  {
+  transition: transform 1s ease;
+  }
+
+.card span
+{
+  height:44px;
+  background-color: #F8D7DA;
+}
+
+  /* end box */

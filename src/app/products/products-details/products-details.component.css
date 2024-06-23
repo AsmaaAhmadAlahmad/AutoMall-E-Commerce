@@ -1,0 +1,19 @@
+.box
+{
+ width: 90%;
+ margin: 100px auto;
+ height: 500px;
+
+}
+ul li {
+  font-size: 20px;
+  max-width: 20px 0;
+}
+
+
+.box img
+{
+  width: 100%;
+  min-height: 300px;
+  max-height: 300px;
+}

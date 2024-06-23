@@ -1,0 +1,43 @@
+<div class="container">
+<div class="box">
+  <div class="my-2">
+    <app-select
+      [widthValue]="'16rem'"
+      [data]="Categories"
+      [title]="'Categories:'"
+      (selecteValue)="filterCatogery($event)"
+    ></app-select>
+  </div>
+  <div class="row mt-3">
+    @for (product of products; track $index) {
+    <div class="col-md-4 col-12" *ngIf="!loading">
+      <app-product [data]="product" (item)="addToCart($event)"></app-product>
+    </div>
+    }
+    <div class="text-center" *ngIf="loading">
+      <app-spinner></app-spinner>
+    </div>
+  </div>
+</div>
+<!-- <app-pagination
+  [currentPage]="currentPage"
+  [itemsPerPage]="itemsPerPage"
+  [totalItems]="totalItems"
+  (pageChanged)="onPageChange($event)"
+></app-pagination>
+
+<div class="pagination-controls">
+  <button (click)="goToPreviousPage()" [disabled]="currentPage === 1">Previous</button>
+  <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">Next</button>
+  <select (change)="goToPage($event.target.value)">
+    <option *ngFor="let page of pageNumbers" [value]="page">{{ page }}</option>
+  </select>
+</div> -->
+
+<app-pagination
+  [TotalItemCount]="TotalItemCount"
+  [PageSize]="PageSize"
+  (pageChanged)="onPageNumberChanged($event)"
+
+></app-pagination>
+</div>

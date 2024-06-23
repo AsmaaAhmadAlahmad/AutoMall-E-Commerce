@@ -1,0 +1,23 @@
+
+.col-lg-4 .a
+  {
+  transition: transform 1s ease;
+  }
+  .row .col-lg-4 .a:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  .card-body {
+    background: #B2B2B2;
+    height: 40px;
+    display: flex;
+    align-items: center; /* توسيط العناصر عمودياً (في الطول) */
+    justify-content: center; /* توسيط العناصر أفقياً (في العرض) */
+}
+a{
+  text-decoration: none;
+}
+.container{
+  margin-top: 100px;
+}

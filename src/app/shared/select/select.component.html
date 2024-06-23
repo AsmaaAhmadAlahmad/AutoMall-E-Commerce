@@ -1,0 +1,29 @@
+<!--  8 تم وضع السليكت ككومبونينت  مشترك لانها ربما ستلزم في مكان اخر  -->
+<!--في الفيو ولكن تم جلبه ووضعه هنا للتنظيم all-products.component الكود التالي كان في ال  -->
+<!-- https://sandroroth.com/blog/large-reactive-forms/ هذا رابط رائع استفدت منو بعمل حركة انو يكون في كومبونينت ابن داخل فورم في الاب  -->
+<form
+ [formGroup]="form"
+ >
+    <label for="" class="my-1"> {{title}} </label>
+    <select class="form-control" [style.width]="widthValue" id="" [attr.multiple]="isMultiple ? '' : null"
+    [formControlName]="formControlName"
+     (change)='detectChanges($event)'>  <!--all-products السطر هذا تم كتابته لفلترة المنتجات على حسب التصنيف الذي تم اختياره في القائمة حيث يلزم فلترة المنتجات في صفحة المنتجات يعني في كومبونينت   -->
+      <option value="all" selected *ngIf="showAllOption">All</option>
+      <option value=""  *ngIf="showDefaultOption" selected> {{messageForDefaultOption}} </option>
+      @for (item of data; track $index)
+       {
+          <option value="{{item.id}}">{{item.name}}</option>
+       }
+    </select>
+
+    <div
+    *ngIf=" formControlName &&
+      form.get(formControlName)?.invalid &&
+      form.get(formControlName)?.touched
+    "
+    class="alert alert-danger"
+  >
+  {{messageForDefaultOption}}
+  </div>
+
+  </form>

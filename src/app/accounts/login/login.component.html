@@ -1,0 +1,71 @@
+<div class="login row justify-content-md-center">
+  <div class="col-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title mb-4">Sign in</h5>
+        <form
+          #tamplateDrivenForm="ngForm"
+          (ngSubmit)="loginAction(tamplateDrivenForm)"
+        >
+
+          <div class="mb-3">
+            <label for="email" class="form-label"> Email address </label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              #email="ngModel"
+              required
+              ngModel
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              [ngClass]="{
+                'is-invalid': email.touched && email.invalid
+              }"
+            />
+            <div
+              *ngIf="email.touched && email.invalid "
+              class="alert alert-danger"
+            >
+              Email feild is required
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password </label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              #password="ngModel"
+              ngModel
+              [ngClass]="{
+                'is-invalid': password.touched && password.invalid
+              }"
+              required
+            />
+            @if(password.touched && password.errors?.['required']) {
+            <div class="alert alert-danger">password field is required</div>
+            }
+          </div>
+
+          <div class="d-grid gap-2">
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              [disabled]="tamplateDrivenForm.invalid"
+            >
+              Login
+            </button>
+            <p className="text-center">
+              if you don't have an account <a routerLink="/register">Register here</a>
+            </p>
+          </div>
+          <!-- {{password.errors?.['pattern']|json}}
+          {{password.invalid|json}} -->
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

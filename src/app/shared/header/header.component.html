@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg">
+  <a routerLink="/home"
+    ><img
+      width="330px"
+      height="120px"
+      src="../../../assets/images/logo.png"
+      alt=""
+  /></a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="/about-the-mall">
+            {{ 'user_header.About The Mall' | translate }}
+
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/products">
+            {{ 'user_header.Products' | translate }}
+
+        </a>
+      </li>
+
+
+      <!-- <div class="language-selector">
+            <button mat-button (click)="changeLang('en')">English</button>
+            <button mat-button (click)="changeLang('ar')">Arabic</button>
+          </div> -->
+
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+            {{ 'user_header.Shop' | translate }}
+        </a>
+        <ul class="dropdown-menu">
+          @for (item of categories; track $index) {
+
+          <li>
+            <a
+              class="dropdown-item text-center"
+              [routerLink]="['/commercial-stores-for-category']"
+              [queryParams]="{ categoryId: item.id }"
+            >
+              {{ item.name }}
+
+            </a>
+          </li>
+
+          }
+        </ul>
+      </li>
+        <li class="nav-item text-center d-flex">
+          <a class="nav-link" routerLink="/cart">
+            {{ "Cart" | translate }}
+          </a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/register" *ngIf="!isLoggedIn()">
+            {{ 'user_header.Sign up' | translate }}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login" *ngIf="!isLoggedIn()">
+            {{ 'user_header.Sign in' | translate }}
+        </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" (click)="sign_out()" *ngIf="isLoggedIn()">
+            {{ 'user_header.Sign out' | translate }}
+
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+    <a mat-button color="primary" class="btn " type="submit" routerLink="/cart">
+      <i class="fas fa-shopping-cart"></i>
+      {{ quantity }} item(s)
+    </a>
+
+  <mat-radio-group aria-label="Select an option">
+    <mat-radio-button value="1" (click)="changeLang('en')"
+      >English</mat-radio-button
+    >
+    <mat-radio-button value="2" (click)="changeLang('ar')"
+      >Arabic</mat-radio-button
+    >
+  </mat-radio-group>
+
+
+</nav>

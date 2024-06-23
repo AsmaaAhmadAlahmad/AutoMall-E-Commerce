@@ -1,0 +1,14 @@
+<div class="container">
+<div class="box mt-5">
+  <div class="row mt-3">
+    @for (product of productsByCommercialStoreId; track $index) {
+    <div class="col-md-4 col-12" *ngIf="!loading" >
+      <app-product [data]="product" (item)="addToCart($event)"></app-product>
+    </div>
+    }
+    <div class="text-center" *ngIf="loading">
+      <app-spinner></app-spinner>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,36 @@
+.bg-theme{
+  background-color: #016364;
+  color: white;
+ }
+
+ .hover:hover {
+   background-color: #2E2E2E;
+ }
+
+.img-preview{
+  height: 250px;
+}
+
+.form-group
+{
+  margin-bottom: 10px;
+}
+
+.btn:nth-child(2)
+{
+  margin-left: 1rem;
+}
+
+
+.alert{
+
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+
+}
+.container {
+  margin-top: 100px;
+}

@@ -1,0 +1,112 @@
+
+<div class="container">
+
+<form #tamplateDrivenForm="ngForm" (ngSubmit)="createOrder1(tamplateDrivenForm)">
+    <div class="form-group mt-3">
+      <label class="control-label">Name</label>
+      <input
+        [(ngModel)]="customerModel.Name"
+        name="name"
+        #nameVar="ngModel"
+        class="form-control"
+        required
+        [ngClass]="{
+          'is-invalid': nameVar.touched && nameVar.invalid
+        }"
+      />
+      <div *ngIf="nameVar.touched && nameVar.invalid" class="alert alert-danger">
+        Name field is required
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label class="control-label">Email</label>
+      <input
+        class="form-control"
+        #emailVar="ngModel"
+        [(ngModel)]="customerModel.Email"
+        name="email"
+        required
+        [ngClass]="{
+          'is-invalid': emailVar.touched && emailVar.invalid
+        }"
+      />
+      <div *ngIf="emailVar.touched && emailVar.invalid" class="alert alert-danger">
+        Email field is required
+      </div>
+    </div>
+    <div class="form-group mt-3">
+      <label class="control-label">Country</label>
+      <input
+        [(ngModel)]="customerModel.Country"
+        #countryVar="ngModel"
+        class="form-control"
+        name="country"
+        required
+        [ngClass]="{
+          'is-invalid': countryVar.touched && countryVar.invalid
+        }"
+      />
+      <div *ngIf="countryVar.touched && countryVar.invalid" class="alert alert-danger">
+        Country field is required
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label class="control-label">City</label>
+      <input
+        [(ngModel)]="customerModel.City"
+        #cityVar="ngModel"
+        class="form-control"
+        name="city"
+        required
+        [ngClass]="{
+          'is-invalid': cityVar.touched && cityVar.invalid
+        }"
+      />
+      <div *ngIf="cityVar.touched && cityVar.invalid" class="alert alert-danger">
+        City field is required
+      </div>
+    </div>
+
+
+    <div class="form-group mt-3">
+      <label class="control-label">Postal Code</label>
+      <input
+        [(ngModel)]="customerModel.PostalCode"
+        #postalCodeVar="ngModel"
+        class="form-control"
+        name="postalCode"
+        required
+        [ngClass]="{
+          'is-invalid': postalCodeVar.touched && postalCodeVar.invalid
+        }"
+      />
+      <div *ngIf="postalCodeVar.touched && postalCodeVar.invalid" class="alert alert-danger">
+        Postal Code field is required
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <label class="control-label">Shipping Address</label>
+      <input
+        [(ngModel)]="customerModel.ShippingAdress"
+        #shippingAdressVar="ngModel"
+        class="form-control"
+        name="shippingAdress"
+        required
+        [ngClass]="{
+          'is-invalid': shippingAdressVar.touched && shippingAdressVar.invalid
+        }"
+      />
+      <div *ngIf="shippingAdressVar.touched && shippingAdressVar.invalid" class="alert alert-danger">
+        Shipping Address field is required
+      </div>
+    </div>
+
+    <div class="form-group mt-3">
+      <button type="submit" class="btn btn-primary" [disabled]="tamplateDrivenForm.invalid">Place order</button>
+    </div>
+</form>
+</div>
+<!-- {{tamplateDrivenForm.invalid|json}} -->

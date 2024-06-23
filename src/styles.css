@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic&display=swap');
+body
+{
+  margin: 0;
+  padding: 0;
+}
+
+*{
+  font-family: 'Montserrat', sans-serif;
+  font-family: cursive;
+  font-size: 16px;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.shadow-effect{
+  border: none;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bg-secondary-theme{
+  background:#E4F5EB;
+}
+
+.bg-theme{
+ background-color: #016364;
+ color: white;
+}
+
+.hover:hover {
+  background-color: #2E2E2E;
+}
+
+.text-theme-primary{
+  color: #016364;
+}
+
+.alert
+{
+  height: 26px;
+  display: flex;
+  justify-content: center; /* توسيط أفقي */
+  align-items: center; /* توسيط عمودي */
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+.ibm-plex-sans-arabic-light {
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+

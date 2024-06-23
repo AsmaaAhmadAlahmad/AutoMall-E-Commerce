@@ -1,0 +1,37 @@
+
+.container {
+  margin-top: 100px;
+}
+
+form button
+{
+  color: white;
+  background-color:#026466;
+  height: 55px;
+  border: none;
+  font-size: 13px;
+}
+
+input[type='text']
+{
+  border-radius: 5px;
+   height: 46px;
+}
+
+.alert{
+
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+
+}
+.bg-secondary-theme{
+  background:#E4F5EB;
+}
+.hover:hover {
+  background-color: #2E2E2E;
+}
+
+

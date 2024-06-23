@@ -1,0 +1,62 @@
+.container {
+  margin-top: 100px;
+}
+.cartBox
+{
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  padding: 0 20px;
+  margin: 50px 0;
+}
+.cartBox h1{
+  color: #424649;
+}
+.cartBox .table .quantity
+{
+  display: flex;
+  justify-content: space-between;
+}
+.cartBox .table .quantity input{
+  margin: 0 20px;
+}
+.cartBox .table .quantity tbody{
+  border-top: 1px solid #c61d21;
+  border-bottom: 1px solid #c61d21;
+}
+
+.cartBox .table .quantity tbody tr td{
+border-bottom: 0;
+text-align: center;
+vertical-align: middle;
+}
+
+.cartBox .table  tbody tr td img{
+  width: 100px;
+  height:90px;
+  border-radius: 20%;
+}
+
+tbody input{
+  text-align: center;
+}
+.cartBox .headerCart{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cartBox .headerCart button{
+  font-size: 16px;
+  background-color:#F2F2F2;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  padding: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border: none;
+
+}
+.cartBox .headerCart button:hover{
+  background-color: #e67779;
+  color: #FFF!important;
+  box-shadow: 0px 5px 190px rgba(#0000,0.3);
+}

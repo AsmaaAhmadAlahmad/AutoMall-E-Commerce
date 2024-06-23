@@ -1,0 +1,213 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-12 text-center">
+      <h3 class="text-theme-primary">Add New Product</h3>
+      <p>You can add product here</p>
+    </div>
+  </div>
+  <div class="text-center" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+  <form action="" [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="card shadow-effect">
+          <div class="card-body">
+            <div class="form-group">
+              <label for=""> Title </label>
+              <input
+                type="text"
+                class="form-control"
+                (keyup)="onTitleChanged($event)"
+                formControlName="name"
+                [ngClass]="{
+                  'is-invalid':
+                    productForm.get('name')?.invalid &&
+                    productForm.get('name')?.touched
+                }"
+              />
+              @if (productForm.get('name')?.invalid &&
+              productForm.get('name')?.touched) {
+              <div class="alert alert-danger">Name is required</div>
+              }
+            </div>
+            <div class="form-group">
+              <label for=""> PermaLink </label>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="permaLink"
+                [ngModelOptions]="{ standalone: true }"
+                disabled
+              />
+            </div>
+            <div class="form-group">
+              <label for=""> Price </label>
+              <input
+                type="text"
+                formControlName="price"
+                class="form-control"
+                name="price"
+                [ngClass]="{
+                  'is-invalid':
+                    productForm.get('price')?.invalid &&
+                    productForm.get('price')?.touched
+                    || productForm.get('price')?.errors?.['pattern']
+                }"
+              />
+              @if (productForm.get('price')?.invalid &&
+              productForm.get('price')?.touched) {
+              <div class="alert alert-danger">Price is required.</div>
+              } @if (productForm.get('price')?.errors?.['pattern']) {
+              <div class="alert alert-danger">
+                Price must be a valid number.
+              </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for=""> Description </label>
+              <textarea
+                class="form-control"
+                cols="30"
+                rows="5"
+                formControlName="description"
+                [ngClass]="{
+                  'is-invalid':
+                    productForm.get('description')?.invalid &&
+                    productForm.get('description')?.touched
+                }"
+              ></textarea>
+              @if (productForm.get('description')?.invalid &&
+              productForm.get('description')?.touched) {
+              <div class="alert alert-danger">Description is required.</div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="form-group">
+          <label for=""> Please select product category </label>
+          <select
+            class="form-control"
+            formControlName="categoryId"
+            [ngClass]="{
+              'is-invalid':
+                productForm.get('categoryId')?.invalid &&
+                productForm.get('categoryId')?.touched
+            }"
+          >
+            <option value="">Please select a category</option>
+            <option *ngFor="let item of allCategories" [value]="item.id">
+              {{ item.name }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              productForm.get('categoryId')?.invalid &&
+              productForm.get('categoryId')?.touched
+            "
+            class="alert alert-danger"
+          >
+            Please select a product category
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label for=""> Please select commercial store</label>
+
+          <select
+            class="form-control"
+            formControlName="commercialStoreId"
+            [ngClass]="{
+              'is-invalid':
+                productForm.get('commercialStoreId')?.invalid &&
+                productForm.get('commercialStoreId')?.touched
+            }"
+          >
+            <option value="">Please select commercial store</option>
+            <option *ngFor="let item of allCommercialStores" [value]="item.id">
+              {{ item.name }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              productForm.get('commercialStoreId')?.invalid &&
+              productForm.get('commercialStoreId')?.touched
+            "
+            class="alert alert-danger"
+          >
+            Please select commercial store
+          </div>
+        </div> -->
+
+        <div class="form-group">
+          <app-select
+            [data]="allCommercialStores"
+            [showAllOption]="false"
+            [showDefaultOption]="true"
+            [messageForDefaultOption]="'Please select commercial store'"
+            [title]="'Please select commercial store'"
+            [formControlName]="'commercialStoreId'"
+            (formCreated)="formInitialized('commercialStoreId', $event)"
+          >
+          </app-select>
+        </div>
+
+        <div class="form-group">
+          <label for="fileUpload"> Product image </label>
+          <img
+            [src]="imgSrc"
+            alt=""
+            class="img-fluid img-preview form-control"
+          />
+          <input
+            type="file"
+            id="fileUpload"
+            formControlName="imageFile"
+            class="form-control"
+            required
+            accept="image/*"
+            (change)="onFileSelected($event)"
+            [ngClass]="{
+              'is-invalid':
+                productForm.get('imageFile')?.invalid &&
+                productForm.get('imageFile')?.touched
+            }"
+          />
+          <div
+            *ngIf="
+              productForm.get('imageFile')?.invalid &&
+              productForm.get('imageFile')?.touched
+            "
+            class="alert alert-danger"
+          >
+            Please select a product image
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-3">
+      <div class="col-md-12 text-center">
+        <button
+          class="btn btn-info bg-theme hover"
+          [disabled]="productForm.invalid"
+        >
+          Add
+        </button>
+        <button
+          class="btn btn-warning ml-2"
+          routerLink="/admin/products/all-products"
+        >
+          Go to the products
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- {{ productForm.invalid | json }}
+{{ productForm.get("commercialStoreId")?.value.commercialStoreId | json }} -->
+{{selectedImage | json}}
